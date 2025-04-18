@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
   <title>Mars Rover Photos</title>
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
@@ -22,7 +26,9 @@ h1 {
   text-shadow: 0 0 5px #1f2833;
   margin-bottom: 20px;
 }
-
+.controls {
+  margin-bottom: 20px;
+}
 input, select, button {
   padding: 10px;
   margin: 10px;
@@ -95,12 +101,30 @@ button {
   background-color: #66fcf1;
   color: #0b0c10;
 }
+#about {
+  max-width: 800px;
+  margin: 40px auto 20px;
+  background: #111418;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #2d2e33;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  text-align: left;
+}
+#about h2 {
+  margin-top: 0;
+  color: #66fcf1;
+}
+#about p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
 </style>
 </head>
 <body>
 
-  <h1>📸 Mars Rover Photo Viewer</h1>
-  
+<h1>📸 Mars Rover Photo Viewer</h1>
+<div class="controls">
   <label for="roverSelect">Choose a Rover:</label>
   <select id="roverSelect">
     <option value="curiosity">Curiosity</option>
@@ -108,17 +132,23 @@ button {
     <option value="spirit">Spirit</option>
   </select>
 
-  <br />
-
   <label for="dateInput">Choose a Date:</label>
   <input type="date" id="dateInput" />
 
-  <br />
   <button onclick="getPhotos()">Get Photos</button>
+</div>
 
-  <div id="photos"></div>
+<div id="photos"></div>
 
-  <script>
+<section id="about">
+  <h2>About Mars and the Rovers</h2>
+  <p>Mars, often called the Red Planet, is the fourth planet from the Sun and has fascinated humanity for centuries. NASA has sent several rovers to explore its surface, seeking to understand its geology, climate, and potential for past life.</p>
+  <p><strong>Curiosity</strong> landed in 2012 and continues to study Mars' habitability, analyzing soil samples and capturing stunning images.</p>
+  <p><strong>Opportunity</strong> explored Mars from 2004 to 2018, traveling over 45 kilometers and revealing evidence of past water activity.</p>
+  <p><strong>Spirit</strong> operated from 2004 to 2010, investigating ancient Martian terrain and contributing invaluable data before getting stuck in soft soil.</p>  
+</section>
+
+<script>
     function viewAndGuide(url) {
         alert("💡 Right-click the image and choose 'Save image as...' to download it.");
         window.open(url, '_blank');
